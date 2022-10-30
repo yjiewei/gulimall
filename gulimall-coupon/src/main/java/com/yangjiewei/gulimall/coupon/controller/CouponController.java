@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.yangjiewei.gulimall.coupon.feign.MemberFeignService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,15 @@ import javax.annotation.Resource;
 public class CouponController {
     @Resource
     private CouponService couponService;
+
+    @Resource
+    private MemberFeignService memberFeignService;
+
+    @RequestMapping("/test/feign")
+    public R testFeign() {
+        System.out.println("测试调用member远程服务");
+        return memberFeignService.testMemberFeign();
+    }
 
     /**
      * 列表

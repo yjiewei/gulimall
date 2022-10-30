@@ -32,6 +32,15 @@ public class MemberController {
     @Resource
     private MemberService memberService;
 
+    @RequestMapping("/test/feign")
+    public R testMemberFeign(){
+        System.out.println("测试feign服务远程调用");
+        MemberEntity memberEntity = new MemberEntity();
+        memberEntity.setId(1L);
+        memberEntity.setNickname("杨杰炜");
+        return R.ok().put("test", memberEntity);
+    }
+
     /**
      * 列表
      */
