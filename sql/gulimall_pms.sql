@@ -1,3 +1,5 @@
+create database if not exists gulimall_pms;
+
 use gulimall_pms;
 
 drop table if exists pms_attr;

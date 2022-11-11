@@ -1,3 +1,5 @@
+create database if not exists gulimall_wms;
+
 use gulimall_wms;
 
 drop table if exists wms_purchase;

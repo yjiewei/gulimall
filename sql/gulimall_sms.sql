@@ -1,3 +1,5 @@
+create database if not exists gulimall_sms;
+
 use gulimall_sms;
 
 drop table if exists sms_coupon;

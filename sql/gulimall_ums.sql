@@ -1,3 +1,5 @@
+create database if not exists gulimall_ums;
+
 use gulimall_ums;
 
 drop table if exists ums_growth_change_history;

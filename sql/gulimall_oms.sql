@@ -1,3 +1,5 @@
+create database if not exists gulimall_oms;
+
 use gulimall_oms;
 
 drop table if exists oms_order;
