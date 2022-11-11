@@ -10,6 +10,10 @@ spring:
   cloud:
     nacos:
       server-addr: 120.78.10.87:8848
+    # 控制台输出的信息，提示说这样写
+    loadbalancer:
+      ribbon:
+        enabled: false
   application:
     name: gulimall-coupon
 
