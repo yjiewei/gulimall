@@ -5,6 +5,8 @@ import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
 import com.yangjiewei.gulimall.coupon.feign.MemberFeignService;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,14 +29,27 @@ import javax.annotation.Resource;
  * @email yang_7131@163.com
  * @date 2022-10-30 17:07:36
  */
+@RefreshScope // 动态刷新配置，结合配置中心使用
 @RestController
 @RequestMapping("coupon/coupon")
 public class CouponController {
+
+    @Value("${coupon.user.name}")
+    private String name;
+
+    @Value("${coupon.user.age}")
+    private Integer age;
+
     @Resource
     private CouponService couponService;
 
     @Resource
     private MemberFeignService memberFeignService;
+
+    @RequestMapping("/test/config")
+    public R testConfig() {
+        return R.ok().put("name", name).put("age", age);
+    }
 
     @RequestMapping("/test/feign")
     public R testFeign() {
